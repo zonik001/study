@@ -1,0 +1,56 @@
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header{
+    background: #e3e4e5;
+    color: #999999;
+    height: 40px;
+    line-height: 40px;
+    /* 固定在屏幕上方 */
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 0;
+
+}
+.header .topnav>li{
+    float: right;
+    width: 100px;
+    
+    margin: 0 30px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+.header .topnav>li:hover{
+    height: 40px;
+    line-height: 36px;
+    border: 2px solid #cccccc;
+    background: #ffffff;
+}
+.header .topnav>li .submenu{
+    width: 300px;
+    position: absolute;
+    border: 2px solid #cccccc;
+    display: none;
+    right: -2px;
+    background: #ffffff;
+}
+.header .topnav>li:hover .submenu{
+    display: block;
+}
+.header .topnav>li:hover::after{
+    content: "";
+    height: 5px;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+.ppp{
+    margin: 40px 0;
+}

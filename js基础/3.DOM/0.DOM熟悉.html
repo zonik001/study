@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            display : none;
+            width : 200px;
+            height : 200px;
+            border : 2px solid  orange;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <div class="content" style="display:block">111</div>
+        <div class="content">222</div>
+        <div class="content">333</div>
+    </div>
+    <script>
+        // dom 对象
+        // var div = document.getElementsByTagName('div')[0];
+        // div.style.height = "100px";
+        // div.style.width = "100px";
+        // div.style.backgroundColor = "red";
+
+        // var count = 0;
+        // div.onclick = function () {
+        //     count ++;
+        //     if (count % 2 == 1){
+        //         this.style.width = "200px";
+        //         this.style.height = "200px";
+        //         this.style.backgroundColor = "green";
+        //     }else{
+        //         this.style.height = "100px";
+        //         this.style.width = "100px";
+        //         this.style.backgroundColor = "red";
+        //     }
+        // }
+
+        // 选项卡
+        // var btn = document.getElementsByTagName('button');
+        // var div = document.getElementsByClassName('content');
+        // for(var i  = 0; i < btn.length; i ++){
+        //      (function (n) {
+        //         btn[n].onclick = function() {
+        //          for(var j = 0; j < btn.length; j ++){
+        //              btn[j].className = "";
+        //              div[j].style.display = "none"
+        //          }
+        //          this.className = "active";
+        //          div[n].style.display = "block";
+        //      }
+        //      }(i))
+        // }
+        // let的作用
+        // for(let i  = 0; i < btn.length; i ++){
+        //     btn[i].onclick = function() {
+        //         for(var j = 0; j < btn.length; j ++){
+        //             btn[j].className = "";
+        //             div[j].style.display = "none"
+        //         }
+        //         this.className = "active";
+        //         div[i].style.display = "block";
+        //     }
+        // }
+        // for(let i  = 0; i < btn.length; i ++){
+        //     btn[i].addEventListener("click",function() {
+        //         for(var j = 0; j < btn.length; j ++){
+        //             btn[j].className = "";
+        //             div[j].style.display = "none"
+        //         }
+        //         this.className = "active";
+        //         div[i].style.display = "block";
+        //     })
+        // }
+
+        const btn =document.getElementsByTagName('button');
+        // const div = document.getElementsByClassName('content');
+        for(let i = 0; i < btn.length; i ++){
+            // 将每个btn都添加点击事件
+            btn[i].onclick = function() {
+                for(let j = 0; j < btn.length; j++){
+                    // 每次点击btn把所有样式重置为空
+                    btn[j].className = '';
+                    // div[j].style.display = 'none';
+                }
+                //添加点击样式
+                this.className = 'active';
+                // div[i].style.display = 'block';
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 元素选择器 */
+        h1{
+            color: blue;
+            background-color: brown;
+            text-align: center;
+        }
+        /* ID选择器 */
+        #test{
+            color:cornsilk;
+        }
+        /* 类选择器 */
+        .red{
+            color: darkgreen;
+        }
+        .big{
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>现在开始添加样式</h1>
+    <div 
+    style="height: 200px;display:flex;align-items:center;justify-content: center; background-color: burlywood;">
+    <div style="width:100px; height:100px;background-color: red;"></div>
+    </div>
+    <h2 style="color: darkgrey;">内联样式表</h2>
+    <p id="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam facere officiis assumenda quae repellendus. Quod assumenda animi, dolorem velit totam odio pariatur voluptatibus laborum reiciendis eveniet laudantium, fugit sapiente similique.</p>
+    <p class="big">Necessitatibus nulla voluptatum inventore, ea hic dolorum harum molestias architecto tempore ullam culpa ipsam quidem commodi, molestiae nostrum natus ab laudantium a at porro ducimus provident velit accusantium. Sunt, cum?</p>
+    <p class="red big" >类选择器段落Dolorem, ea iure exercitationem laboriosam in quisquam quis voluptates, asperiores aperiam blanditiis eos! Quo odit non nulla dicta, atque quisquam consectetur odio id, nihil quas quia numquam eligendi porro dolore.</p>
+    <div 
+    style="height: 200px;  background-color: burlywood ;position: relative;">
+    <div style="
+    width:100px; height:100px;background-color: red; position: absolute; right: 0; top: 0; left: 0; bottom: 0;margin: auto;">
+    </div>
+    </div>
+    <div>dsadasd</div>
+    <div 
+    style="height: 200px;position: relative; background-color: burlywood;">
+    <div style="width:100px; height:100px;background-color: red;position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);"></div>
+    </div>
+</body>
+</html>

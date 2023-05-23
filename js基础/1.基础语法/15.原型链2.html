@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Person.prototype.name = 'sunny';
+        
+        function Person() {
+
+        }
+        var person = new Person;
+
+        // Person.prototype.name = 'cherry';
+        // console.log(person.name); //cherry  照代码执行顺序访问  只有原型中的name属性被修改了
+
+        // 这里与上面就不一样了(把原型对象给换了)
+        Person.prototype = {
+            name : 'cherry'
+        }
+        console.log(person.name);
+
+        // 上面过程原理分三步
+        // Person.prototype = {name : 'sunny'}
+        // __proto__ = Person.protoytype  
+        // Person.prototype = {name : 'cherry'}  Person.prototype原型对象更换了空间，新的空间与__proto__没有关系了
+
+
+        //将原型赋值语句放在创建实例对象上面，具体过程
+        // Person.prototype.name = 'sunny';
+        // Person.prototype = {name : 'cherry'};
+        // __proto__ = Person.protoytype  //创建实例，进行赋值 此时使用的就是新空间中的原型属性 cherry
+
+
+    
+
+
+
+        Grand.prototype.lastName = 'deng';
+        function Grand () {
+
+        }
+        var grand = new Grand();
+        console.log(grand.__proto__ === Grand.prototype);
+
+        Father.prototype = grand;  
+        function Father () {
+
+        }
+        var father = new Father;
+        // console.log(father.__proto__ === Father.prototype);
+        console.log(father.__proto__ === grand);
+        // console.log(father.__proto__.__proto__ === grand.__proto__);
+        console.log(father.__proto__.__proto__ === Grand.prototype);
+        // console.log(father.__proto__.__proto__.__proto__ === Grand.prototype.__proto__);
+        console.log(father.__proto__.__proto__.__proto__ === Object.prototype);
+        // console.log(father.__proto__.__proto__.__proto__.__proto__ === Object.prototype.__proto__);
+        console.log(father.__proto__.__proto__.__proto__.__proto__ === null);
+        
+        Son.prototype = father;
+        function Son() {
+            
+        }
+        var son = new Son;
+        // console.log(son.__proto__ === Son.prototype);
+        console.log(son.__proto__ === father);
+        // console.log(son.__proto__.__proto__ === father.__proto__);
+        console.log(son.__proto__.__proto__ === grand);
+        // console.log(son.__proto__.__proto__.__proto__ === grand.__proto__);
+        console.log(son.__proto__.__proto__.__proto__ === Grand.prototype);
+        // console.log(son.__proto__.__proto__.__proto__.__proto__ === Grand.prototype.__proto__);
+        console.log(son.__proto__.__proto__.__proto__.__proto__ === Object.prototype);
+        // console.log(son.__proto__.__proto__.__proto__.__proto__.__proto__ === Object.prototype.__proto__);
+        console.log(son.__proto__.__proto__.__proto__.__proto__.__proto__ === null);
+        console.log(son.lastName); //deng
+    </script>
+</body>
+</html>

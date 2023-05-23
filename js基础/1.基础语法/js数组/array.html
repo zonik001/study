@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const players = [
+            { name: '科比', num: 24 },
+            { name: '詹姆斯', num: 23 },
+            { name: '保罗', num: 3 },
+            { name: '威少', num: 0 },
+            { name: '杜兰特', num: 35 }
+        ]
+
+
+        // 1.foreach
+        // array.forEach(element => {
+            
+        // });
+
+        // foreach的三个参数
+        // item：遍历项
+        // index：遍历项的索引
+        // arr：数组本身
+
+        // Array.prototype._forEach = function (callback) {
+        //     for(let i = 0; i < this.length; i++) {
+        //         callback(this[i],i,this)
+        //     }
+        // }
+        // players._forEach((item,index,arr) => {
+        //     console.log(item,index,arr)
+        // })
+        // players.forEach((element,index,arr) => {
+        //     console.log(element,index,arr)
+        // })
+
+
+        // 2.map(遍历整个数组，根据回调函数批量更改并返回更改后的数组)
+        // array.map()
+        // map() 方法返回一个新数组，这个新数组：由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
+        // map() 不会对空数组进行检测。
+        // map() 不会改变原始数组
+
+        // map的三个参数
+        // item：遍历项 (必选)
+        // index：遍历项的索引（非必选）
+        // arr：数组本身（非必选）
+        players.map((item,index,arr) => {
+            console.log(`${item.name}--${item.num}---${index}`)
+        })
+        console.log(players.map((item,index) => `${item.name}--${item.num}---${index}`))
+
+        Array.prototype._map = function(callback) {
+            const res = []
+            for(let i = 0; i < this.length; i ++) {
+                res.push(callback(this[i], i, this))
+            }
+            return res
+        }
+        console.log(players._map((item,index) => `${item.name}--${item.num}---${index}`))
+
+        // 3.filter(根据条件返回过滤后的数组)
+        // 参数同上
+        // Array.prototype._filter = function(callback) {
+        //     const res = []
+        //     for(let i = 0; i < this.length; i ++) {
+        //         callback(this[i],i,this) && res.push(this[i])
+        //     }
+        //     return res
+        // }
+        // console.log(players._filter((item,index) => item.num > 20))
+
+        // 4.every(所有数组项满足条件返回true，否则false)
+        // Array.prototype._every = function(callback) {
+        //     let flag = true  
+        //     for(let i = 0; i < this.length; i++) {
+        //         flag = callback(this[i],i,this)
+        //         if (!flag) break
+        //     }
+        //     return flag
+        // }
+
+        // 5.some(有数组项满足条件返回true,否则false)
+        // Array.prototype._every = function(callback) {
+        //     let flag = true
+        //     for(let i = 0; i < this.length; i++) {
+        //         flag = callback(this[i],i,this)
+        //         if (flag) break
+        //     }
+        //     return flag
+        // }
+
+        // 6.reduce
+        // 参数
+        // pre
+        // next
+        // index
+        // arr
+
+
+
+        // 7.findindex
+        // 参数三件套
+
+
+
+        // 8.find
+        // 参数三件套
+
+
+
+        // 9.fill（用于填充数组）
+        // initValue：填充的值
+        // start：开始填充索引，默认0
+        // end：结束填充索引，默认length
+
+
+
+        // 10.includes （查找元素，查到返回true，反之返回false，可查找NaN）
+
+
+        // 11.join(将数组用分隔符拼成字符串，分隔符默认为,)
+
+
+        // 12.flat
+
+
+        
+    </script>
+</body>
+</html>

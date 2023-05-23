@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 600px;
+            border: 1px solid red;
+            text-align: center;
+            font-size: 30px;
+            position: relative;
+        }
+        .box .title{
+
+        }
+        .box .button {
+            width: 170px;
+            height: 70px;
+            background-color: blue;
+            border-radius: 7px;
+            margin: auto;
+            margin-top: 20px;
+            z-index: 99;
+        }
+        .box .hint {
+            width: 200px;
+            height: 600px;
+            display: none;
+            /* background-color: blanchedalmond; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            text-align: center;
+        }
+        .box .button:hover .hint {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="title">hhhhh</span>
+        <div class="button">
+            <div class="hint">
+                
+            </div>
+        </div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        
+    </div>
+</body>
+</html>

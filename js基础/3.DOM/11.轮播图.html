@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 2.css样式 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #slider,
+        a {
+            width: 600px;
+            height: 400px;
+        }
+
+        #slider {
+            position: absolute;
+            border: 2px solid black;
+            margin: 10px 0 0 10px;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        ul {
+            position: absolute;
+            list-style-type: none;
+            width: 6000px;
+            /*transition-duration: 0.3s;*/
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #slider:hover .arrow-container {
+            display: block;
+        }
+
+        .arrow-container {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+        }
+
+        .arrow-container span {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            /*display: inline-block;*/
+            text-align: center;
+            line-height: 50px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .left-arrow {
+            left: 0px;
+            cursor: pointer;
+        }
+
+        .right-arrow {
+            right: 0px;
+            cursor: pointer;
+        }
+
+        .indicator-container {
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -75px;
+            text-align: center;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            background: white;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background: rgb(49, 43, 43);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.布局 -->
+    <div id="slider">
+        <ul class="slieder-item-container">
+            <li><a href="#"><img src="img/1.jpg" /></a></li>
+            <li><a href="#"><img src="img/2.jpg" /></a></li>
+            <li><a href="#"><img src="img/3.jpg" /></a></li>
+            <li><a href="#"><img src="img/4.jpg" /></a></li>
+            <li><a href="#"><img src="img/5.jpg" /></a></li>
+        </ul>
+        <div class="arrow-container">
+            <span class="left-arrow">L</span>
+            <span class="right-arrow">R</span>
+        </div>
+        <div class="indicator-container">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </div>
+
+</body>
+
+</html>

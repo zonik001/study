@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // iterater迭代器用于for...of..循环消费
+
+        const xiyou = ["唐僧","孙悟空","猪八戒","沙僧"]
+        console.log(xiyou)
+        let iterater = xiyou[Symbol.iterator]()
+        console.log(iterater.next())
+        console.log(iterater.next())
+        console.log(iterater.next())
+        console.log(iterater.next())
+        console.log(iterater.next())
+    </script>
+</body>
+</html>

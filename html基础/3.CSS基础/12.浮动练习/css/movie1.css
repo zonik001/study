@@ -1,0 +1,95 @@
+body{
+    color: #333333;
+}
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main{
+    line-height: 1.5;
+}
+.main .sub-nav{
+    background: #47464a;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+
+}
+.main .sub-nav a{
+    /* 行盒，margin只能设置宽度 */
+    margin: 40px;
+    color: #999999;
+
+}
+.main .sub-nav a:hover{
+    color: #ffffff;
+}
+.main .sub-nav a.selected{
+    color: #ef4238;
+}
+.main .container{
+    
+    width: 1120px;
+    margin: 0 auto;
+
+}
+.main .container .choose-area{
+    border: 1px solid #e5e5e5;
+    line-height: 2;
+    font-size: 14px;
+    margin: 25px 0;
+    padding: 0 20px;
+}
+.main .container .choose-area .choose-item{
+    margin: 1em 0;
+    border-bottom: 1px dotted #e5e5e5;
+}
+.main .container .choose-area .no-line{
+    border:  none;
+}
+.main .container .choose-area .choose-item .left{
+    float: left;
+    width: 50px;
+    color: #999999;
+}
+.main .container .choose-area .choose-item .right{
+    float: left;
+    width: 1000px;
+}
+.main .container .choose-area .choose-item .right li{
+    float: left;
+    margin: 0 20px;
+}
+.main .container .choose-area .choose-item .right li a:hover{
+    color: #ef4238;
+}
+.main .container .choose-area .choose-item .right li a.selected{
+    color:  #ffffff;
+    background:  #ef4238;
+    border-radius: 20px;
+}
+.main .container .movies{
+    margin: 30px 0;
+    
+}
+.main .container .movies .movie-item{
+    float: left;
+    width: 160px;
+    margin-right: 26px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.main .container .movies .movie-item .movie-img img{
+    width: 160px;
+    height: 220px;
+}
+.main .container .movies .movie-item .movie-name::first-letter{
+    font-weight: bold;
+}
+.main .container .movies .movie-item .movie-point{
+    text-align: center;
+    color: #ffb400;
+    line-height: 2.5;
+    font-style: italic;
+}

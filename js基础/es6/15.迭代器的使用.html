@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义遍历数据</title>
+</head>
+<body>
+    <script>
+        // 迭代器用来自定义遍历数据
+
+        // 声明一个变量
+        const tes48 = {
+            name : "tes48",
+            member : [
+                "魏延",
+                "诸葛天亮",
+                "关喻",
+                "mar超"
+            ],
+            // [Symbol.iterator]() {
+            //     // 创建索引下标
+            //     let index = 0;
+            //     // 保存this指向
+            //     let _this = this;
+            //     return {
+            //         next : function() {
+            //             if(index < _this.member.length) {
+            //                 return {value: _this.member[index],down:false};
+            //                 index ++;
+            //             }else {
+            //                 return {value:undefined,down:true};
+            //             }
+            //         }
+            //     }
+            // }
+            // 走不通 无限循环了怎么回事
+            [Symbol.iterator]() {
+                // 创建索引下标
+                let index = 0;
+                // 保存this指向
+                // let _this = this;
+                return {
+                    next : () =>{
+                        if(index < this.member.length) {
+                            return {value: this.member[index],down:false};
+                            index ++;
+                        }else {
+                            return {value:undefined,down:true};
+                        }
+                    }
+                }
+            }
+        }
+        // 需求：遍历上述对象中的member数组
+        // 普通思路：直接 tes48.member.forEach((item,index)=>{})
+        // 使用迭代器更符合面向对象的思想
+        for(let i of tes48){
+            console.log(i)
+        }
+    </script>
+</body>
+</html>

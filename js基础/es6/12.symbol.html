@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 特点
+        // 1.symbol的值是唯一的，用来解决命名冲突问题
+        // 2.Symbol值不能与其他数据运算
+        // 3.Symbol定义的对象属性不能使用for in循环，
+        // 但是可以使用Reflect.ownKeys来获取所有对象的键名
+
+        // 创建symbol
+        let s = Symbol();
+        console.log(s,typeof(s));
+        let s2 = Symbol('描述');
+        let s3 = Symbol('描述');
+        console.log(s1 === s2); //false
+        // Symbol.for创建
+        let s4 = Symbol.for('描述');
+        let s5 = Symbol.for('描述');
+        console.log(s5 === s4) //true
+    </script>
+</body>
+</html>

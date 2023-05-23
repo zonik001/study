@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "only">123</div>
+    <div>
+        <p class="demo"></p>
+    </div>
+    <div>
+        <span>
+            <strong class="demo">
+                123
+            </strong>
+        </span>
+    </div>
+    <div>
+        <span>
+            <strong>
+                
+            </strong>
+        </span>
+    </div>
+    <div></div>
+
+    
+    <div>
+        2434
+        <!-- this is comment -->
+        <strong></strong>
+        <span></span>    
+    </div> 
+    
+    <script>
+        // id
+        // var div = document.getElementById('only');
+
+        // **dom中成组的都是类数组**
+        // TagName   非常常用
+        var div = document.getElementsByTagName('div');  //直接操作div会报错 它是一个数组
+        var div = document.getElementsByTagName('div')[0];  
+        div.style.backgroundColor = "red"; 
+
+        // ClassName 
+
+        // Name 只有部分标签name可生效（表单，表单元素，img，iframe）  很少用
+
+
+        // query的问题  不是实时的 ，选中的相当于副本 （自己操作的会更改 ，别人修改的不会更改）
+        // qureySlector  一个
+        var strong = document.querySelector('div > span strong.demo');
+
+        // qureySlectorAll 一组
+        var Strong1 = document.querySelectorAll('div > span Strong.demo');
+
+
+    
+
+        // 遍历节点树
+
+        // parentNode  父节点  （最顶端是#document）
+        console.log(div.parentNode.parentNode);
+        console.log(div.parentNode.parentNode.parentNode);
+
+        // childNodes 子节点们
+    //     <div>
+    //     2434
+    //     <!-- this is comment -->
+    //     <strong></strong>
+    //     <span></span>    
+    // </div>     7跟节点
+        var div = document.getElementsByTagName('div')[0];
+        console.log(div.childNodes)
+   
+// 节点类型
+//     1. 元素节点 1
+//     2. 属性节点 2
+//     3. 文本节点 3 
+//     4. 注释节点 8
+//     5. document 9
+//     6. DocumentFragment  11
+
+// 节点的四个属性
+// 1. nodeName  元素的标签名，以大写形式表示，只读
+// 2. nodevalue  text节点或Comment节点的文本类容，可读写
+// 3. **nodeType**   该节点的类型，只读
+// 4. attributes  Element节点的属性集合
+
+// 节点的一个方法  node.hasChildNodes();
+
+        // firstChild  第一个子节点
+
+        // lastChild 最后一个子节点
+
+        // nextSibling 后一个兄弟节点  previousSibling 前一个兄弟节点
+
+
+
+        // 遍历元素节点树
+
+        // parentElement  返回当前元素的父元素节点
+
+        // children  只返回当前元素的子节点
+
+        // node.children.length === node.childElementCount 当前元素节点子元素节点个数
+
+        // firstElementChild 返回的是第一的元素节点
+
+        // lastElementChild 返回的是最后一个元素节点
+
+        // nextElementSibling / previousElementSibling  返回后一个元素节点
+
+       
+
+
+    </script>
+</body>
+</html>

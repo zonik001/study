@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // xyz的值
+        var x = 1,
+        y = z = 0;
+
+        function add(n) {
+            return n = n + 1;
+        }
+
+        y = add(x);
+        function add(n) {
+            return n = n + 3;
+        }
+        
+        z = add(x);
+
+
+
+        // 结果 3 NaN 3 以redix为基底转化为10进制
+        parseInt(3,8); //(String,redix)
+        parseInt(3,2);
+        parseInt(3,0);
+
+
+        //call apply 方法是做什么的，区别是什么？ 改变this指向，区别就是传参列表不一样
+
+
+        //   形参实参映射关系
+        function b (x,y,a) {
+            // arguments[2] = 10;
+            // alert(a);   
+
+            a = 10;
+            console.log(arguments[2]);  //10
+        }
+        b(1,2,3);
+        //将函数体改为下面，结果
+
+
+
+        // number
+        var f = (
+            function f(){
+            return "1";
+        },
+        function g() {
+            return 2;
+        } 
+        )();
+        console.log(typeof f);
+
+
+        // 1undefind
+        var x = 1;
+        if(function e() {}) {
+            x+= typeof e;
+        }
+        console.log(x);
+
+
+        //isNaN 用函数实现 
+        function myisNaN(num) {
+            var ret = Number(num);
+            ret += "";  //让NaN变成一个字符串
+            if(ret == "NaN") {
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+
+        // 显示类型转换
+        console.log(parseInt("1a"));  // 1
+
+
+
+        //this指向问题
+        var foo = '123';
+        function print() {
+            var foo = '456';
+            this.foo = '789';  //指向window
+            console.log(foo);
+        }
+        print();  //456
+       //GO值覆盖
+    //    var fo = '123';
+    //    function print1() {
+
+    //        this.fo = '789';
+    //        console.log(fo);
+    //    }
+    //    print1(); // 789
+
+    // new 之后this被占用了
+    var fo = '123';
+        // var thsi = Object.create(print1.prototype)
+       function print1() {
+
+           this.fo = '789';
+           console.log(fo);
+       }
+       new print1();   //123
+
+
+       var a = 5;
+       function test() {
+           a = 0;
+           console.log(a) //0
+           console.log(this.a) //5
+           var a;
+           console.log(a); //0
+       }
+    //    AO {
+    //        a : 0,
+    //        this : window
+    //    }
+       test()  //0 5 0
+
+    //    AO {
+    //        a : 0,
+    //        this : {}
+    //    }
+    // new test(); //0 undefind 0
+
+
+
+    // 
+    var bar = {a : "002"}
+    function print2() {
+        bar.a = 'a';
+        Object.prototype.b = 'b';
+        return function inner() {
+            console.log(bar.a); 
+            console.log(bar.b);
+        }
+    }
+    print2()();
+    </script>
+</body>
+</html>

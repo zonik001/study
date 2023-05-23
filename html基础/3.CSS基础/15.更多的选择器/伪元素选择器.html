@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .element-first ul>li::first-letter{
+            color: red;
+            font-weight: bold;
+        }
+        .line p::first-line{
+            color: red;
+        }
+        .section p::selection{
+            /* 一般用于设置颜色,不要违背逻辑去设置什么宽高 */
+            color: lightblue;
+            background: #008c8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="element-first">
+        <ul>
+            <li>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, reiciendis.lorem lorem</p>
+            </li>
+            <li>
+                <p>Officiis aliquid, enim tempora ipsa assumenda unde quos numquam perferendis.</p>
+            </li>
+            <li>
+                <p>Sint eaque nulla sed dolorum dolor accusamus tenetur quam amet?</p>
+            </li>
+            <li>
+                <p>Enim numquam reiciendis in necessitatibus eveniet rerum obcaecati quae vero.</p>
+            </li>
+            <li>
+                <p>Itaque reprehenderit veritatis accusantium beatae rerum blanditiis animi explicabo esse!</p>
+            </li>
+            <li>
+                <p>Natus corporis quaerat sapiente quam architecto praesentium harum totam perspiciatis?</p>
+            </li>
+            <li>
+                <p>Ea repellat reprehenderit maxime. Culpa quo laborum architecto hic quia.</p>
+            </li>
+          
+        </ul>
+    </div>
+    <div class="line">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, tempore! Corrupti vitae accusantium iure nostrum optio hic repellat provident necessitatibus debitis quo neque praesentium quos totam eligendi soluta, dolorem est.</p>
+        <p>Saepe quibusdam nam odio est porro nisi animi.</p>
+        <p>Commodi laudantium iure vitae quas ipsa dolore dolorem?</p>
+        <p>Saepe nulla corporis aperiam, perspiciatis nostrum at totam.</p>
+    </div>
+    <div class="section">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque praesentium rerum vel! Alias sint ducimus a deleniti quibusdam illum, obcaecati libero at natus ipsam cumque quo aliquam tenetur nulla veniam?</p>
+    </div>
+</body>
+</html>

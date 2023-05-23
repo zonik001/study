@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Person.prototype.name = "abc";
+        function Person() {
+            // 隐式  每个对象都有一个属性指向它的原型
+            // var this = {
+            //     __proto__ : Person.prototype   __proto__存的是这个对象的原型 
+            // }
+        }
+        var person = new Person();
+        console.log(person.constructor == Person);  // true  实例的constructor属性都指向 Person
+        console.log(Person.prototype.cosntructor == Person);
+        console.log(person instanceof Object);  // true    instanceof(实例)操作符用来确定对象类型
+        console.log(person instanceof Person);  // true    person 既是Person的实例也是Object的实例
+    </script>
+</body>
+</html>

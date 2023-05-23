@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明变量
+        let hu;
+        let b,c;
+        let d = 100;
+        let e = [], f = '';
+
+
+        // 特性
+            // 1.变量不能重复声明
+                let a = 0;
+                // let a = 1;   //报错
+
+            // 2.块级作用域   全局，函数，eval
+            // {
+            //     var girl = '周'
+            // }
+            // console.log(girl)  //报错
+ 
+            // 3.不存在变量提升
+                // console.log(boy)  报错
+                // boy = 'hu'  
+
+            // 4.虽说是块级作用域 ，但不影响作用域链效果
+                {
+                    let people = "hubohan"
+                    function fu() {
+                        console.log(people);
+                    }
+                    fu();
+                }
+               
+
+
+    </script>
+</body>
+</html>

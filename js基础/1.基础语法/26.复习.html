@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原始值是不能有属性和方法的
+        // 包装类
+        var str = "abc";
+        // new String("abc").length   隐式包装  //new String 把(str)包裹起来了  原始值包装成对象
+        console.log(str.length);
+
+        var num = 123;
+        num.abc = 'abc';
+        // new Number(num).abc = 'abc';   ---> delete
+        // 
+        // new Number(num).abc  //再访问时
+        console.log(num.abc);   //undefined
+
+
+                
+        // 原型
+        Person.prototype.lastName = 'deng';
+        function Person() {
+            // var this = {
+            //      __proto__ : Person.prototype
+            // }
+        }
+        var person = new Person(); 
+        console.log(person.lastName);  //没有这个属性，去原型链上找
+
+        // create
+        var demo = {
+            name : 'abc'
+        }
+        var obj = Object.create(demo);//去demo
+        // obj = {
+        //     __proto__ : demo
+        // }
+            // create(prototype, definedProperty)   (对象,属性的特性)可填写第二个参数
+            // 特性
+            // 一旦经历了var操作所得出的属性,window,这种属性叫做属性的不可配置的属性,不可配置的属性 delete不掉
+        
+
+
+        // this call
+        function test() {
+            console.log(this);
+        }
+        // test() --> AO{
+        //     arguments : {},
+        //     this : window,
+             
+        // }
+        // 1. 预编译 this --> window
+        // 2. 哪个对象调用 this指向谁
+        // 3. call aplly
+        // 4. 全局this -- window
+
+
+
+        
+    </script>
+</body>
+</html>

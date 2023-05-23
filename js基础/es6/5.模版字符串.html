@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 模版字符串使用反单引号 ``
+
+        // 1.声明
+        let str = `我是一个字符串！！`
+        console.log(str,typeof(str));
+
+        // 2.内容中可以直接出现换行符
+        //报错
+        // let string = '<ul>
+        //                 <li>张三</li>
+        //                 <li>李四</li>
+        //                 <li>王五</li>
+        //             </ul>' 
+        
+        let string = `
+                <ul>
+                    <li>张三</li>
+                    <li>李四</li>
+                    <li>王五</li>
+                </ul>
+        `;
+
+        // 3.变量拼接 ${}
+        let belove = 'game';
+        let description = `${belove} is my love`
+        console.log(description);
+    </script>
+</body>
+</html>

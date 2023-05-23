@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- domTree  -->
+    <!-- 1.domTree解析原则：深度优先原则 例如先解析head包括head里面的元素，再解析body -->
+    <!-- 2.生成domTree的过程叫解析，不会解析标签里面的东西 如下不会解析src中的 -->
+    <img src="#" alt="">
+    <iframe src="#" frameborder="0"></iframe>
+    <!-- 3.dom树完成代表dom节点解析完，不代表加载完。这个两个过程（解析，加载）是异步（同时）发生的 -->
+    <!-- cssTree domTree生成完之后生成cssTree-->
+    <!-- cssTree生成完之后与domTree合并成renderTree -->
+    <!-- 然后渲染引擎按照renderTree绘制页面 -->
+
+    <!-- reflow 重排(重构renderTree) 以下操作会导致重排:dom节点的删除，添加，dom节点的宽高变化，位置变化，display:none -》block，offsetWidth、offsetLeft(计算dom节点的宽度高度，实时查询会导致重拍)-->
+    <!-- 要避免重排 -->
+    <!-- repaint 重绘(不会完全重新渲染整个页面,资源浪费较少 操作:修改颜色..) -->
+
+
+    <!-- 异步加载js三种方法 -->
+    <script defer="defer" src="tools.js" >  //1.推迟下载,可写在内部
+        // 为什么js(单线程)不能与html和css异步(同时)加载  会导致页面一直修改
+
+        // js加载缺点:加载根据方法没必要阻塞文档,过多js加载会影响页面效率,一旦网速不好,那么整个网站将等待js加载而不进行后续渲染工作
+
+        // 有些工具方法需要按需加载,用到在加载,不用不加载.此时就需要异步加载  refer
+    </script>
+    
+    <script aysnc src="tools.js">//2.asychronous(异步)下载,只能引入外部文件 (asychronous javascript and xml --- ajax)</script> 
+
+    <script>
+        // 3.
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table caption{
+            font-size: 2em;
+            font-weight: bold;
+            
+        }
+        th,td{
+            border: 1px solid #999;
+            text-align: center;
+            padding: 14px 0;
+        }
+        thead{
+            color: #ffffff;
+            background: #008c8c;
+        }
+        tbody tr:nth-child(2n+1){
+            background: #ccc;
+        }
+        /* tr */
+        tbody tr:first-child{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>这是表格的标题</caption>
+        <thead>
+            <!-- table row -->
+            <tr>
+                <th>列1</th>
+                <th>列2</th>
+                <th>列3</th>
+                <th>列4</th>
+                <th>列5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+                <td>数据3</td>
+                <td>数据4</td>
+                <td>数据5</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <!-- colspan="5">跨越5列    跨行rowspan-->
+                <td colspan="5">合计：xxx </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
