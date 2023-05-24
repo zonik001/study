@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 600px;
+            margin:  0 auto;
+            position: relative;
+        }
+        .item1{
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 4px solid #000000;
+            box-sizing: border-box;
+        }
+        .item2{
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 4px solid red;
+            box-sizing: border-box;
+            left: 40px;
+        }.item3{
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 4px solid blue;
+            box-sizing: border-box;
+            left: 80px;
+        }.item4{
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 4px solid yellow;
+            box-sizing: border-box;
+            left: 20px;
+            top: 30px;
+        }.item5{
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 4px solid green; 
+            box-sizing: border-box;
+            left: 60px;
+            top: 30px;
+            /* 未设置z-index按源次序重叠，越靠后里用户越近 */
+            /* 设置z-index */
+            z-index: -1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+    </div>
+</body>
+</html>

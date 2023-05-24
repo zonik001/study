@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>用一个callback函数创建一个XMLHttpRequest，并从一个TXT文件中检索数据。</title>
+    <script>
+        var xmlhttp;
+        function loadXMLDoc(url, cfunc) {
+            if (window.XMLHttpRequest) {// IE7+, Firefox, Chrome, Opera, Safari 代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// IE6, IE5 代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = cfunc;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function myFunction() {
+            // 这个地址问题是怎么回事，有点yun
+            loadXMLDoc("http://127.0.0.1:5500/WebStudy/vue-07-lifecycle&ajax/test.txt", function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    // console.log(xmlhttp.responseText)
+
+                    // 不能直接把文本转换为字符串吗？
+                    var str = String(xmlhttp.responseText);
+                    console.log(str)
+
+                    var num = str.match(/\d+/g)
+                    // var num = str.match(/^[-+]?\d*$/)
+                    // var num = str.match(/\d/)
+                    console.log(num)
+
+                    // document.getElementById("myDiv").innerHTML = num
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="myDiv">
+        <h2>使用 AJAX 修改文本内容</h2>
+    </div>
+    <button type="button" onclick="myFunction()">修改内容</button>
+
+</body>
+
+</html>

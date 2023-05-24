@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //arguments.callee  执向函数自身引用
+        var num = (function (n) {
+            if(n == 1) {
+                return 1;
+            }else {
+                return n * arguments.callee(n-1);
+            }
+        }(10))
+        
+
+        function test()  {
+            console.log(arguments.callee);
+            function demo() {
+                console.log(arguments.callee);    
+            }
+            demo();  //demo()
+        }
+        test();   //test()
+
+
+        //caller
+        function test1() {
+            demo();
+        }
+        function demo1() {
+            demo.caller;
+        }
+        test();
+
+
+
+       
+        
+    </script>
+</body>
+</html>

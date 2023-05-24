@@ -1,0 +1,123 @@
+<canvas id="canvas"></canvas>
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth - 20;
+  canvas.height = window.innerHeight - 20;
+
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  class Firework {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.vx = Math.random() * 3 - 1.5;
+      this.vy = -Math.random() * 10;
+      this.radius = 2;
+      this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      this.alpha = 1;
+      this.exploded = false;
+      this.particles = [];
+      this.waitTime = 0;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.alpha;
+      ctx.fill();
+    }
+
+    update() {
+      if (this.exploded) {
+        if (this.waitTime === 0) {
+          for (let i = 0; i < 50; i++) {
+            const particle = new Particle(this.x, this.y, this.color);
+            this.particles.push(particle);
+          }
+        }
+        this.waitTime++;
+        if (this.waitTime > 50) {
+          this.particles.forEach(particle => particle.update());
+        }
+      } else {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.1;
+        if (this.vy >= 0) {
+          this.explode();
+        }
+      }
+
+      this.alpha -= 0.005;
+      if (this.alpha < 0) {
+        this.alpha = 0;
+      }
+    }
+
+    explode() {
+      this.exploded = true;
+    }
+  }
+
+  class Particle {
+    constructor(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.vx = Math.random() * 6 - 3;
+      this.vy = Math.random() * 6 - 3;
+      this.radius = Math.random() * 4 + 1;
+      this.color = color;
+      this.alpha = 1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.alpha;
+      ctx.fill();
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vx *= 0.99;
+      this.vy *= 0.99;
+      if (this.alpha > 0) {
+        this.alpha -= 0.02;
+      }
+    }
+  }
+
+  function createFirework() {
+    const firework = new Firework(Math.random() * canvas.width, canvas.height);
+    fireworks.push(firework);
+  }
+
+  const fireworks = [];
+
+  setInterval(() => {
+    createFirework();
+  }, 1000);
+
+  function loop() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    fireworks.forEach((firework, index) => {
+      firework.update();
+      firework.draw();
+      if (firework.waitTime > 50) {
+        fireworks.splice(index, 1);
+      }
+    })
+
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+</script>

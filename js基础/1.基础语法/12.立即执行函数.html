@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 立即执行函数   利用小括号的性质实现的
+        // 针对初始化功能的函数
+        num = (function (a,b,c){
+            d = a + b + c
+            return d;
+        }(1,2,3))
+
+        // 函数**声明**
+        function test() {
+            var a = 123;
+        }//() 不能执行,会报错 因为它叫函数声明
+        test(); //能被执行 ，函数引用test也是一个表达式
+
+        //只有**表达式**才能被执行符号执行
+        // 函数**表达式**
+        console.log(test);
+        var test = function () {    //var test理解为变量声明， = func....}理解为一个表达式  
+            console.log('a');
+            console.log(test);
+        }();  //函数表达式，能被执行
+        // 能被执行符号执行的表达式，这个函数名字就会自动被忽略(基本就成了立即执行函数)
+
+        // 函数声明在前面加上正负号或！就变成表达式了，就能直接被执行了
+        + function test() {
+            console.log('a');
+        }();
+
+        (function test(){ //由于执行一次后也引用不了了，那test也就没有存在的必要了，最后就变成了现在的立即执行函数
+            console.log('a');
+        }())
+
+    </script>
+</body>
+</html>

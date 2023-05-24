@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function
+
+        // 1.call
+        const obj = {
+            name: "胡伯涵",
+            func(age,work) {
+                console.log(`${this.name}${age}岁了在${work}`)
+            }
+        }
+        const obj2 = {
+            name: "张三" 
+        }
+        // obj.func.call(obj2,22,"搬砖") 
+
+        Function.prototype._call = function(obj,...args) {
+            obj = obj || window
+            const fn = Symbol()
+            console.log(this,'this');
+            console.log('1',obj[fn])
+            obj[fn] = this
+            console.log('2',obj[fn])
+            return obj[fn](...args)
+        }
+        obj.func._call(obj2,22,"搬砖")
+
+        // 2.apply
+        console.log('apply---------------------------');
+        obj.func.apply(obj2,[22,"搬砖"])
+        Function.prototype._apply = function(obj,args) {
+            obj = obj || window
+            const fn = Symbol()
+            obj[fn] = this
+            return obj[fn](...args)
+        }
+        obj.func._apply(obj2,[22,"搬砖"])
+
+
+        // 3.bind
+        // 用来创建一个新函数，该函数与原函数具有相同的函数体，但是绑定了指定的 this 对象和参数列表。
+        Function.prototype.myBind = function(obj, ...args1) {
+            const self = this;
+            return function(...args2) {
+                obj = obj || this;
+                return self.apply(obj, [...args1, ...args2]);
+            }
+        }
+        console.log('bind---------------------------');
+        obj.func.myBind(obj2,22,"搬砖")()
+    </script>
+</body>
+</html>

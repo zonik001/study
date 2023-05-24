@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>hhh</div>
+    <div>ads</div>
+    <div>da</div>
+    <script>
+      // ... 扩展运算符能将数组转换为逗号分隔的参数序列
+      const xiyouji = ["tang", "sun", "zhu", "sha"];
+      // 使用 ...   => 'tang','sun','zhu','sha'
+      function print() {
+        console.log(arguments);
+      }
+      print(xiyouji);
+      print(...xiyouji);
+
+      // 应用
+      // 1.数组的合并
+      const arr1 = ["nihao", "zhangs", "kk"];
+      const arr2 = ["nnn", "jjj"];
+      // es5
+      const arr3 = arr1.concat(arr2);
+      console.log(arr3);
+      //扩展运算符
+      const arr4 = [...arr1, ...arr2];
+      console.log(arr4);
+
+      // 2.数组的克隆 浅拷贝
+      const array1 = ["hha", "kky", { ki: "nihao" }];
+      const array1Copy = [...array1];
+      console.log("浅拷贝", array1 == array1Copy); //false
+      // const array2 = array1
+      // console.log("赋值也算浅拷贝",array1 === array2) //true
+      // const ar = array1;
+      console.log(array1Copy);
+
+      // 3.将伪数组变为数组
+      const divs = document.querySelectorAll("div");
+      console.log(divs);
+      const divArr = [...divs];
+      console.log(divArr);
+
+      //4.解构赋值时合并解构的值
+      const obj = {
+        name: "LuoKing",
+        age: 21,
+        girlFriend: "WangBingBing",
+        workingFriend: "YueYingGeGe",
+        lifeFriend: "YiYangQianXi",
+      };
+
+      const arr = [1, 2, 3, 4, 5];
+
+      const { name, age, ...friends } = obj;
+
+      console.log(name); // LuoKing
+      console.log(age, undefined); // 21
+      console.log(friends);
+    </script>
+  </body>
+</html>

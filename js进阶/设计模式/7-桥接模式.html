@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+/**
+ * 定义：用于将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构，从而能够更好地组合和扩展这些类
+ * 
+ * 作用：在前端开发中，桥接模式通常用于处理 UI 组件的复杂性，将组件的抽象与实现分离，使得它们能够独立地变化。
+ * 通过桥接模式，我们可以让组件的行为和样式分别独立变化，从而避免在代码中出现过多的重复和复杂度。
+ * 
+ * 组成：
+ * 抽象部分（Abstraction）：定义了组件的抽象接口和行为，它依赖于一个实现部分的对象。
+ * 实现部分（Implementation）：定义了组件的实现接口和样式，它被抽象部分所依赖。
+*/
+
+
+
+// 示例
+// 假设我们需要实现一个 UI 组件库，其中包含多种样式的按钮
+/**
+ * 步骤：
+ * 首先，我们创建一个抽象部分（Button）和两个实现部分（DefaultButton 和 OutlineButton），
+ * 它们分别定义了按钮的抽象接口和样式，
+ * 然后，我们可以创建不同类型的按钮，并将其与不同样式的按钮相结合：
+ */
+
+// 抽象部分
+class Button {
+    constructor(implementation) {
+      this.implementation = implementation;
+    }
+  
+    click() {
+      this.implementation.onClick();
+    }
+  
+    render() {
+      return this.implementation.render();
+    }
+  }
+  
+  // 实现部分 - 默认样式
+class DefaultButton {
+    onClick() {
+        console.log("DefaultButton clicked");
+    }
+  
+    render() {
+        return "<button class='default'>Default Button</button>";
+    }
+}
+  
+  // 实现部分 - 轮廓样式
+class OutlineButton {
+  onClick() {
+    console.log("OutlineButton clicked");
+  }
+
+  render() {
+    return "<button class='outline'>Outline Button</button>";
+  }
+}
+  
+  // 创建不同类型的按钮
+  const primaryButton = new Button(new DefaultButton());
+  const secondaryButton = new Button(new OutlineButton());
+  
+  // 渲染并绑定按钮事件
+  document.body.innerHTML = `
+    ${primaryButton.render()}
+    ${secondaryButton.render()}
+  `;
+  
+  document.querySelector(".default").addEventListener("click", () => {
+    primaryButton.click();
+  });
+  
+  document.querySelector(".outline").addEventListener("click", () => {
+    secondaryButton.click();
+  });
+  
+  </script>
+</body>
+</html>

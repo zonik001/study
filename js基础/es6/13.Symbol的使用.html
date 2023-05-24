@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 用于给对象添加独一无二的属性和方法
+
+        // 需求： 向目标添加up down 方法
+        let game = {
+            name : "俄罗斯方块"
+        }
+        // es5添加 有风险，不能判断game中是否有up 如果对象结构复杂
+        // game.up = function() {}
+
+        // es6 使用symbol
+
+        // 添加方式一
+        // 1.自己创建一个对象
+        methods = {
+            up : Symbol(),
+            down : Symbol()
+        };
+        // 2.添加
+        game[methods.up] = function() {
+            console.log("up")
+        }
+        game[methods.down] = function() {
+            console.log("down")
+        }
+        console.log(game)
+
+
+        // 添加方式二
+        let youxi = {
+            name : "狼人杀",
+            [Symbol('say')] : function() {
+                cosole.log("我不是狼")
+            }
+        }
+        console.log(youxi)
+
+        // let iterater = xiyou[Symbol.iterator]()
+        
+        // 用Symbol添加的方法怎么调用啊？
+        
+    </script>
+</body>
+</html>

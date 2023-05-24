@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #only{
+            font-size: 20px;
+            color:#fff;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // Dom基本操作
+        // 1. 增
+        // **  document.createElement();   创建元素节点
+        //     document.createTextNode();   文本
+        //     document.createComment();   没啥用
+        //     document.createDocumentFragment();  
+
+        // 2. 插
+        //     **PARENTNODE.appendChild();
+            var div = document.getElementsByTagName('div')[0];
+            var text = document.createTextNode('niahao');
+            var span = document.createElement('span');
+            div.appendChild(text);
+            div.appendChild(span);
+            var text1 = document.createTextNode('hhh');
+            span.appendChild(text1);
+        //     **PARENTNODE.insertBefore(a,b);
+        // 3. 删
+        //     parent.removeChild();
+        //     **child.remove();
+        
+        // 4. 替换
+        //     parentNode.replaceChild(new, origin);
+
+
+
+        // Element节点的一些属性
+        // innerHTML
+        div.innerHTML = '123';  //覆盖
+
+        div.innerHTML += " 456";
+        // innerText
+
+        // Element节点的方法
+        // ele.setAttribute();
+        div.setAttribute('id','only');
+        // ele.getAttribute();
+        div.getAttribute('id');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>五子棋</title>
+	<style>
+		table {
+			margin: 0 auto;
+			border-collapse: collapse;
+			table-layout: fixed;
+			width: 450px; height: 450px;
+		}
+		td {
+			padding: 0; width: 30px; height: 30px;
+			border: 1px solid black; box-sizing: border-box;
+			text-align: center; font-size: 24px;
+			cursor: pointer;
+            position: relative;
+		}
+		.black {
+            border-radius: 50%;
+            /* transform: translate(50%,-50%); */
+			background-color: black; 
+		}
+		.white {
+            border-radius: 50%;
+            /* transform: translate(50%,-50%); */
+			background-color: yellow; 
+		}
+        #backMove {
+            width: 50px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: white;
+            background-color: blue;
+        }
+	</style>
+</head>
+<body>
+	<table id="chessboard"></table>
+    <div id="backMove">悔棋</div>
+<script>
+    let catch1 = null;
+    const chessboard = document.getElementById("chessboard");
+    const ROWS = 15, COLS = 15;
+    const EMPTY = 0, BLACK = 1, WHITE = 2;
+
+    let currentPlayer = BLACK; // 黑方先手
+    let gameBoard = []; // 棋盘状态二维数组
+    let gameOver = false; // 游戏是否结束
+
+    // 初始化棋盘
+    for (let i = 0; i < ROWS; i++) {
+        let row = [];
+        for (let j = 0; j < COLS; j++) {
+            row.push(EMPTY);
+        }
+        gameBoard.push(row);
+    }
+
+    // 创建棋盘视图
+    for (let i = 0; i < ROWS; i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < COLS; j++) {
+            let cell = document.createElement("td");
+            cell.setAttribute("id", i + "-" + j);
+            cell.addEventListener("click", function() {
+                if (!gameOver && gameBoard[i][j] === EMPTY) {
+                    makeMove(i, j);
+                }
+            });
+            row.appendChild(cell);
+        }
+        chessboard.appendChild(row);
+    }
+
+// 处理游戏结束
+function endGame(winner) {
+	let message;
+	if (winner === BLACK) {
+		message = "黑方胜利！";
+	} else if (winner === WHITE) {
+		message = "白方胜利！";
+	} else {
+		message = "和局！";
+	}
+	alert(message);
+	gameOver = true;
+}
+
+// 判断是否五子连珠
+function checkWin(row, col, color) {
+	let count = 0;
+	// 水平方向
+	for (let j = col - 4; j <= col + 4; j++) {
+		if (j < 0 || j > COLS - 1) continue;
+		if (gameBoard[row][j] === color) {
+			count ++;
+		} else {
+			count = 0;
+		}
+		if (count == 5) return true;
+	}
+	count = 0;
+	// 垂直方向
+	for (let i = row - 4; i <= row + 4; i++) {
+		if (i < 0 || i > ROWS - 1) continue;
+		if (gameBoard[i][col] === color) {
+			count ++;
+		} else {
+			count = 0;
+		}
+		if (count == 5) return true;
+	}
+	count = 0;
+	// 左上到右下方向
+	for (let i = row - 4, j = col - 4; i <= row + 4; i++, j++) {
+		if (i < 0 || i > ROWS - 1 || j < 0 || j > COLS - 1) continue;
+		if (gameBoard[i][j] === color) {
+			count ++;
+		} else {
+			count = 0;
+		}
+		if (count == 5) return true;
+	}
+	count = 0;
+	// 右上到左下方向
+	for (let i = row - 4, j = col + 4; i <= row + 4; i++, j--) {
+		if (i < 0 || i > ROWS - 1 || j < 0 || j > COLS - 1) continue;
+		if (gameBoard[i][j] === color) {
+			count ++;
+		} else {
+			count = 0;
+		}
+		if (count == 5) return true;
+	}
+	return false;
+}
+
+// 棋子下子
+function makeMove(row, col) {
+	gameBoard[row][col] = currentPlayer;
+	let cell = document.getElementById(row + "-" + col);
+    catch1 = cell
+	if (currentPlayer === BLACK) {
+		cell.classList.add("black");
+		if (checkWin(row, col, BLACK)) {
+			endGame(BLACK);
+		} else {
+			currentPlayer = WHITE; // 轮到白方下子
+		}
+	} else {
+		cell.classList.add("white");
+		if (checkWin(row, col, WHITE)) {
+			endGame(WHITE);
+		} else {
+			currentPlayer = BLACK; // 轮到黑方下子
+		}
+	}
+}
+
+    </script>
+</body>
+
+</html>

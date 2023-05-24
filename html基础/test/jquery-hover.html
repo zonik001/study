@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login_index{
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            width: 200px;
+            height: 160px;
+        }
+        a {
+            display: block;
+            background-color: blanchedalmond;
+            border: 1px solid red;
+            height: 40px;
+            box-sizing: border-box;
+        }
+        .details {
+            position: absolute;
+            left: -105px;
+            top: 0;
+            width: 100px;
+            height: 160px;
+        }
+        #detail1 {
+            
+            height: 160px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            display: none;
+        }
+        #detail2 {
+            height: 160px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            display: none;
+        }
+        #detail3 {
+            
+            height: 160px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            display: none;
+        }
+        #detail4 {
+
+            height: 160px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login_index">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+
+        <div class="details">
+            <div id="detail1">11111</div>
+            <div id="detail2">22222</div>
+            <div id="detail3">33333</div>
+            <div id="detail4">44444</div>
+        </div>
+    </div>
+
+   
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function() {
+            $(".login_index a:eq(0)").mouseover(function(e) {
+                // $("#detail1").css({"display":"block"})
+                $("#detail1").show();
+            });
+            $(".login_index a:eq(0)").mouseout(function(e) {
+                // $("#detail1").css({"display":"none"});
+                $("#detail1").hide();
+            });
+            $(".login_index a:eq(1)").mouseover(function(e) {
+                $("#detail2").show();
+            });
+            $(".login_index a:eq(1)").mouseout(function(e) {
+                $("#detail2").hide();
+            });
+            $(".login_index a:eq(2)").mouseover(function(e) {
+                $("#detail3").show();
+            });
+            $(".login_index a:eq(2)").mouseout(function(e) {
+                $("#detail3").hide();
+            });
+            $(".login_index a:eq(3)").mouseover(function(e) {
+                $("#detail4").show();
+            });
+            $(".login_index a:eq(3)").mouseout(function(e) {
+                $("#detail4").hide();
+            });
+        })
+    </script>
+</body>
+
+</html>

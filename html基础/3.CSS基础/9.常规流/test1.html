@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            background: lightblue;
+            border: 1px solid;
+            padding: 30px;
+            height: 200px;
+            
+        }
+        .child{
+            background: red;
+            border: 1px solid;
+            height: 100px;
+            /* 每个块盒的总宽度，必须刚好等于包含块的总宽度 */
+            /* 当包含块宽度没有被填满时，margin-right自动填满 */
+            /* width: 100px; */
+
+            /* 此时将左右margin设为auto，可以实现块盒居中 
+            原理：左右margin吸收能力是一样的*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

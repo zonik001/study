@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 运算结果
+        // 1 / 0 Infinity Number
+        // 0 / 0 NaN   Not a Number
+
+        // + 复合数学中的运算规则
+        // 字符之前的数字会数学相加 ，之后的运算为 "2a" + 1 = "a1" "2a1" + 1 = "2a11"
+        var f = 1 + 1 + "a" + 1 + 1;
+        document.write(f);
+
+        // ++  a ++ 等价于 a = a + 1;
+        var a = 1;
+        
+        // 当++放在后面 会执行完当前语句后++ ,如下第二次打印结果为2
+        document.write(a ++);
+        document.write(a);
+
+        // 当++放在前面 会最优先执行++ ,结果为3    
+        document.write(++ a);
+    </script>
+
+</body>
+</html>

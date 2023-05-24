@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        // 防抖函数的原理:
+        // 在事件被触发 n 秒后才执行回调函数，
+        // 如果在这 n 秒内事件又被触发，则重新开始计时，等待 n 秒后再执行回调函数。
+        // 如果在这 n 秒内再次触发了事件，就重新计时。
+        function debounce(fn, delay) {
+            let timer = null
+            delay = delay || 200
+            return function () {
+                let args = arguments
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(function () {
+                    timer = null
+                    fn.apply(this, args)
+                }.bind(this), delay)
+            }
+        }
+
+        window.onscroll = debounce(() => {
+            console.log('滚动滑轮')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 每个函数都有一个特殊的属性叫做 constructor，
+        // 它默认指向该函数的原型对象的 constructor 属性，即该函数本身。
+        // （函数的原型对象的 constructor 属性指向函数本身）
+        const me = function() {
+            let a = 0
+            let b = 1
+        }
+        console.log(me);  //内部属性
+        console.log(me.prototype);
+        console.log(me.prototype.constructor === me.constructor); //false 可能是因为内部属性的原因
+
+        // 函数的原型对象上默认有一个 constructor 属性，它指向函数自身
+        function Person(name) {
+            this.name = name;
+        }
+        console.log(Person.prototype.constructor === Person); // true
+
+
+        // 主要作用 实例的constructor指向构造函数
+        // 作为对象实例化后，调用对象的构造函数的引用。
+        function Humen(name) {
+            this.name = name;
+        }
+
+        const humen = new Humen('Alice');
+        console.log(humen.constructor === Humen); // true
+
+        
+
+    </script>
+</body>
+</html>

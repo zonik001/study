@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var animal = window.prompt('input');
+      // switch(animal){
+      //     case "dog":
+      //         console.log('wangwang');
+      //         break;
+      //     case "cat":
+      //         console.log('miaomiao');
+      //         break;
+      // }
+
+      // function voice(animal) {
+      //     switch(animal) {
+      //         case "dog" :
+      //             console.log('wang!')
+      //             return;
+      //         case "cat" :
+      //             document.write('miao!');
+      //             return;
+      //         case "goat" :
+      //             document.write('mie!');
+      //             return;
+      //     }
+      // }
+
+      // function sum() {
+      //     // var result;
+      //     // result返回结果为非数 （没有赋值导致类型不明)？
+      //     var result = 0;
+      //     for(var i = 0; i < arguments.length; i ++) {
+      //         result += arguments[i];
+      //     }
+      //     // return result;
+      //     console.log(result);
+      //     // return result;
+      // }
+
+      // 将字符串中的数反向输出并转换为汉字
+      // 抽象出两个功能 ，1是反向输出，2是转换为汉字
+
+      // js中字符串相当于一个数组，可以用 chartAt[i] 将每一个字符提取出来
+      // 也可以直接使用str[i] ?
+
+      // function reverse(){
+      //     // 定义一个空串接收num中逆向的字符
+      //     var str = "";
+      //     var num = window.prompt('input');
+      //     for(var i = num.length - 1; i >= 0; i --) {
+      //         // 调用下面的转换方法
+      //         // 理解：形参里面就是变量名  实参里面就是变量值
+      //         // 理解：调用函数中写实参 ，声明函数写形参
+      //         str += transfer(num[i]);
+      //     }
+      //     return str;
+      // }
+
+      // function transfer(target) {
+      //     switch (target) {
+      //         case '1' :return '一';
+      //         case '2' :return '二';
+      //         case '3' :return '三';
+      //         case '4' :return '四';
+      //         case '5' :return '五';
+      //         case '6' :return '六';
+      //         case '7' :return '七';
+      //         case '8' :return '八';
+      //         case '9' :return '九';
+      //     }
+      // }
+
+      //递归作用就是简化代码 ，    **递归最先执行的最后被返回**       在复杂函数中一般都不会用到函数的递归。
+      // 写递归的思路：先找规律返回 ，再找到出口
+      // 递归最关键的两点：（1）找规律   （2）找出口
+
+      // 求n的jc
+      // 使用递归的方式 抽象出来  n! = n * (n - 1)!
+      // n * {(n-1) * (n -2).... * 1}  {...} 在这里可以抽象为 jc(n -1)
+      // function jc(n){
+      //     // 函数出口 1，没有这个函数就会无限死循环
+      //     if(n == 1){
+      //         return 1;
+      //     }else{
+      //         return n * jc(n - 1);
+      //     }
+      // }
+
+      // 程序运行流程   n = 4
+      // jc(4)  ==>  4 * jc(3)
+      // jc(3)  ==>  4 * jc(2)
+      // jc(2)  ==>  4 * jc(1) ==> 4 * 1  此时 jc(1)返回1 ，出口就有了，然后再往上一个个计算返回 ，最后得出 jc(4)
+
+      // 使用函数求斐波那契数列
+      // fir  sec   tir   fore          fore = 2 * tir - fir
+      // 1    1     2      3    5    8   13   21  34
+      // 抽象出来  fbnq(n) = fbnq(n - 1) * 2 - fbnq(n-3) （我这抽象的是个屁  涉及到多种运算多个表达式，没啥意义?）
+      // fbnq(n) = fbnq(n - 1) + fbnq(n -2)
+      function fbnq(n) {
+        if (n == 1 || n == 2) {
+          return 1;
+        }
+        return fbnq(n - 1) + fbnq(n - 2);
+      }
+
+      // // 要求输入一串低于10位的数字，输出这串数字的中文大写。银行家
+      // // 1000000000  关键是千位为0读0 ，千位不为0 ，前面的0不读
+      //   function num(n){
+
+      //   }
+    </script>
+  </body>
+</html>

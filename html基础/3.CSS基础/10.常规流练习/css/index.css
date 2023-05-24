@@ -1,0 +1,33 @@
+body{
+    background: #4d4a40;
+    line-height: 2;
+    min-width: 1000px;
+}
+.container{
+    background: #ffffff;
+    margin: 20px 50px;
+    border: solid;
+}
+.container .logic{
+    background: #267890;
+    text-align: center;
+    margin-left: -34px;
+    margin-right: -34px;
+    height: 100px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border: 5px solid #144140;
+}
+.container .logic .host{
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.container .logic .hyper{
+    /* margin-bottom: 2px; */
+}
+.time{
+    border-top: dashed;
+    border-bottom: dashed;
+    font-size: 32px;
+}

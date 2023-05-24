@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数
+        function Student(name,age,sex){
+            this.name = name,
+            this.age = age,
+            this.sex = sex,
+            this.grade = 2017;
+        }
+        var student = new Student('zhangsan',18,'male');
+
+        // 包装类
+        // 原始值不允许有属性和方法，它只是一个值作为一个独立的个体存在
+        // 数字也分两种不是原始值
+        var num = new Number(123);
+        num.abc = 'a';
+        // 变成对象数字后依然能进行运算，参与运算后又变回数字
+        result = num * 2
+        console.log(result); //246
+        // 字符串和布尔与数字完全一致
+
+        // 因为包装类的存在
+        var num = 4;
+        num.len = 3; 
+        // 隐式 new Number(4).len = 3    然后马上delete
+        // 访问时 new Number(4).len   没有赋值，结果undefined
+        console.log(num.len);   //undefined
+
+        var arr = [1,2,3,4];
+        arr.length = 2;   //数组截断了
+        console.log(arr);  // 1,2
+        var str = 'abcd';
+        str.length = 2;
+        console.log(str);   //abcd
+
+        // 为什么原始值不允许有属性和方法，却又能调用呢？
+        var str = 'abcd';
+        // new String('abcd')   这个属性是系统自带的，所以有值
+        console.log(str.length);
+
+
+        var str = "abc";
+        str += 1;
+        var test = typeof(str);
+        if(test.length == 6) {
+
+            test.sign = "typeof返回的结果可能为String";
+        }
+        console.log(test.sign);
+
+
+        
+
+        function Person() {
+
+        }
+        Person.prototype = {
+            name : "hu",
+            age : 21,
+            job : "student"
+        }
+        // 枚举 Object.keys
+        var person1 = new Person();
+        let keys = Object.keys(Person.prototype);
+        console.log(keys)
+        person1.name = 'liu'
+        person1.age = 18;
+        person1.job = 'student';
+        delete person1.name;
+        let p1keys = Object.keys(person1)
+        
+        console.log(p1keys);
+        
+    </script>
+</body>
+</html>

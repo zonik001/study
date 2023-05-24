@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组
+        // 数组属性 length
+        // var arr = [1,2,3,4,5,"abc",undefined,null];
+        // for(var i = 0; i < arr.length; i ++){
+        //     console.log(arr[i]);
+        // }
+
+
+        // 对象  用来存储 键值对 key value
+        // var deng = {
+           
+        //     LastName : "deng",
+        //     age : 40,
+        //     handsome : false,
+        //     son : "xiaodeng"
+        // }
+        // console.log(deng.LastName);
+        // deng.LastName = "old deng";
+        // console.log(deng.LastName);
+
+
+        // typeof  
+        // 泛泛的引用值都返回object null也是object
+        var num = null; //obj
+        var num = undefined; //undefined
+        var num = NaN; //number  
+        console.log(typeof(num));
+
+
+        // 显示类型转换
+
+        // var num = 1 * '1';  
+        // console.log(typeof(num) + ' : ' + num);
+
+        // Number(mix) 转换为数字 千方百计想把那些东西转换为数字
+        // var demo = "123"; // 123
+        // undefined不能转换位数字 结果为 NaN
+        var demo = undefined;  //NaN
+        // var demo = "a"; //NaN
+        var num = Number(demo);
+        console.log(typeof(num) + " : " + num);
+
+
+        // parseInt(string,radix) (1)只将数字转换为整型 ，其它的全为NaN 
+        // var demo = "123.3"; //123
+        // // var demo = "a";  //NaN
+        // (2)砍断原则：从数字为开始看到非数字位，后边的砍掉
+        var demo = "123px";
+        var num = parseInt(demo);
+        console.log(typeof(num) + " : " + num);
+        // (3)以目标进制为基底转换为10进制
+        var demo = "10"; //16
+        var num = parseInt(demo, 16); //radix取值范围是2-35 //以16进制为基底转换为10进制
+        console.log(typeof(num) + " : " + num); 
+
+        // parseFloat(string) 与parseInt区别：识别小数点
+        var demo = "123.2px";
+        var num = parseFloat(demo);
+        console.log(typeof(num) + " : " + num);
+
+        
+        //String(mix) 什么都能转换为字符串
+        var demo = undefined;
+        var num = String(demo);
+        console.log(typeof(num) + " : " + num);
+
+        // toString(radix) undefind 和 null 不能用toString
+        var demo = 10;
+        // 写法不太一样
+        var num = demo.toString(8); // 以10进制为基底转换为8进制，与上边相反
+        console.log(typeof(num) + " : " + num);
+
+        // 2进制转16进制 parseInt  toString
+
+
+        // Boolean() 除了那6个为false ，其它都为true
+
+
+
+        // 隐示类型转换
+
+        // isNaN ==>Number 
+        console.log(isNaN("abc")); //ture
+        console.log(isNaN(null)); //false
+
+        // ++/-- +/-(一元正负) ==>Number
+        var demo = 'a';
+        var num = +demo;
+        console.log(num + ":" + typeof(num));
+
+        // + ==>string
+        var demo = 'a';
+        var str = demo + 1;
+        console.log(str+ ":" + typeof(str));
+
+        // -*/%  ==>Number
+        // var demo = '1';
+        var demo = 'a';
+        var num = demo - 1;
+        console.log(num + ":" + typeof(num));
+
+        // && || !  ==>boolean
+        
+
+        // < > >= <=  ==>boolean
+
+
+        // == != ==>boolean
+        var demo = '1',
+            num = 1;
+        result = demo == num;
+        console.log(result + ":" + typeof(result));
+        // 特殊 null == undefined //ture 
+        // NaN == NaN false 非数什么都不等于
+        // === !== 不发生类型转换
+
+
+        // 变量未定义就使用 仅有一种情况不报错
+        console.log(typeof(typeof(a))); //此处a未定义但不报错  typeof("undefined") ==> string
+        // typeof()返回值为String类型
+        </script>
+</body>
+</html>

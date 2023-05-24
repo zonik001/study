@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Person.prototype       --原型
+        // Person.prototype = {}  
+        Person.prototype.lastName = 'Deng';
+        Person.prototype.say = function() {
+            console.log('hello');
+        }
+        function Person () {
+        }
+        
+        var person = new Person();
+        console.log(person);  //自己没有值
+        console.log(person.lastName);  //Deng 能访问到原型中的值
+        // function Person(name, age, sex) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+        // var person = new Person('xuming',18,'male');
+
+        // 原型的增删改查
+        Person.prototype.age = 40;    //必须要通过prototype这个属性才能增添
+
+
+        // Car.prototype = {
+        //     height : 1400,
+        //     lang : 4900,
+        //     carName : "BMW"
+        // }       //这样写更简单一点
+        // function Car() {
+        // }
+        // var car = new Car();
+
+
+        // 隐式的系统属性  Car.prototype = {constructor : Car}  可以修改
+        // Car.prototype = {
+        //     constructor : Person,
+        // }
+        function Car() {
+        }
+
+        var car = new Car();
+        // console.log(car.__proto__);
+        console.log(car.constructor == Car);  //constructor 可以手动更改
+
+
+        
+    </script>
+</body>
+</html>

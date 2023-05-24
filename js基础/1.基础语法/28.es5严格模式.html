@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es3.0和es5.0产生冲突的部分
+        // es5.0严格模式 ,冲突部分用es5.0
+        // 1.严格模式不支持with,arguments.callee,func.caller,
+        // 2.变量赋值前必须声明,
+        // 3.局部this必须被赋值(Person.call(null/undefined)赋值什么就是什么,(es3中赋原始值会被包装))
+        // 4.j拒绝重复属性和参数
+        
+        // "use strict"; // 启动严格模式   全局写在页面的最顶端
+        function test() {
+            console.log(arguments.callee);
+        }
+        function demo() {
+            "use strict";  //局部
+            console.log(arguments.callee);
+        }
+        // demo();
+        test();
+
+
+
+        // with (更改作用域链)
+        var obj = {
+            name : 'obj' //1
+        }
+        var name = 'window';  //3
+        function test1() {
+            var name = 'scope'; //2
+            with(obj) {  //此时在作用域链中查找的顺序
+                console.log(name);
+            }
+        }
+        //命名空间的用法
+        var org = {
+            dp1 : {
+                hbh : {
+                    name : 'hbh',
+                    age :23
+                },
+                wang : {
+                    name : 'wang',
+                    age :40
+                }
+            },
+            dp2 : {
+
+            }
+        }
+        with(org.dp1.hbh)  {
+            console.log(name);
+        }
+        with(org.dp1.wang){
+            console.log(name);
+        }
+
+
+
+        // eval :能将字符串的值直接打印
+        // 不能在es3使用
+    </script>
+</body>
+</html>

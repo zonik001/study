@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 简化代码,降低耦合
+        // function test(){
+        //     document.write('a');
+        //     document.write('b');
+        //     document.write('c');
+        // }
+        // if(1 > 0){
+        //     test();
+        // }
+        // if(2 > 0){
+        //     test();
+        // }
+
+
+        // function sum(a, b) {
+        //     // 形参长度  函数名.length
+        //     console.log(sum.length);
+        //     // 实参长度
+        //     console.log(arguments.length);
+        //     if (sum.length > arguments.length) {
+        //         console.log("形参多了")
+        //     } else if (sum.length < arguments.length) {
+        //         console.log("实参多了")
+        //     } else {
+        //         console.log('相等')
+        //     }
+        // }
+        // sum(1, 2, 3, 4, 5, 6)
+
+
+
+        // 任意数求和函数
+        // 即不定参 实参求和
+        // function sum (){
+        //     var result = 0;
+        //     for(i = 0; i < arguments.length; i ++){
+        //         result += arguments[i];
+        //     }
+        //     console.log(result);
+        // }
+        // sum(1,2,3,4,5,6,7,8,9)
+
+
+        // 形参实参有映射关系, 属于两个变量
+        function sum(a,b){
+            // arguments [1,2]
+            // 相当于 var a = 1;
+            a = 2;
+            // 这里 a变 argument[0]也变了
+            console.log(arguments[0])
+
+            arguments[0] = 3;
+            // 为什么 arguments[0]变了 ,a也跟着变
+            console.log(a);
+        }
+        sum(1,2)
+
+        // 形参实参不对称部分没有映射关系
+          
+        
+    </script>
+</body>
+
+</html>

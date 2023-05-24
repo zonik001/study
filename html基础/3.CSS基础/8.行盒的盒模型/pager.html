@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        /* 行块盒经常用来做分页 */
+        .pager a{
+          
+            border: 1px #e1e2e3 solid;
+            display: inline-block;
+            color: #3388ff;
+            width: 34px;
+            height: 34px;
+            text-decoration: none;
+            /* 水平居中 */
+            text-align: center;
+            /* 垂直居中 */
+            line-height: 34px;
+            box-sizing: border-box;  
+            
+        }
+        a:hover{
+            border:1px red solid;
+            /* box-sizing: border-box;     哪来的傻der */
+        }
+        .pager a.select{
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+        <!-- a*10>{$} -->
+    <div class="pager">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="" class="select">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+        <a href="">9</a>
+        <a href="">10</a>
+    </div>
+</body>
+</html>

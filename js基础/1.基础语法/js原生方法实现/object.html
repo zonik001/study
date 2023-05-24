@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name : "张三",
+            age : 23,
+            gender : "男"
+        }
+
+        // 1.entries (将对象转换为键值对数组)
+        Object.prototype._entries = function(obj) {
+            const res = []
+            for(let prop in obj) {
+                obj.hasOwnProperty(prop) && res.push([prop,obj[prop]])
+            }
+        }
+        console.log(Object.entries(obj))
+
+        // 2.fromEntries(与上相反)
+        Object.prototype._fromEntries = function(arr) {
+            const obj = {};
+            for (let i = 0; i < arr.length; i++) {
+                const [key, value] = arr[i]
+                obj[key] = value
+            }
+            return obj
+        }
+        const arr = [["name","张三"],["age","22"],["gender","男"]]
+        console.log(Object.prototype._fromEntries(arr))                                   
+
+        // 3.keys 将对象的属性名key转换成一个数组s                                                                                                                                                                                                                                                                                                                                                                      m'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm'm  
+        Object.prototype._keys = function(obj) {
+            const keys = []
+            for(let key in obj) {
+                obj.hasOwnProperty(key) && res.push(key)
+            }
+        }
+        console.log(Object.keys(obj))
+        // console.log(Object.prototype._keys(obj))
+
+        // 4.value 把对象的value值转换为数组
+
+
+        // 5.instanceOf 判断A是否经过B的原型链
+        // 语法objA instanceOf objB
+
+
+        // 6.is 判断objA是否等于objB
+        // 用法 Object.is(objA,objB)
+        Object.prototype.sx_is = function (x, y) {
+            if (x === y) {
+                // 防止 -0 和 +0
+                return x !== 0 || 1 / x === 1 / y
+            }
+
+            // 防止NaN
+            return x !== x && y !== y
+        }
+
+        const a = { name: '胡伯涵' }
+        const b = a
+        const c = { name: '胡伯涵' }
+
+        console.log(Object.sx_is(a, b)) // true
+        console.log(Object.sx_is(a, c)) // false
+
+    </script>
+</body>
+</html>

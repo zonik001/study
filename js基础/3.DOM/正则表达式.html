@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg = /./g;
+        var str = "你是个凑sb";
+        console.log(str.match(reg));
+
+        // 写一个正则表达式，检验字符串首或尾是否含有数字
+        var reg1 = /^\d|\d$/g;
+        var str1 = "12HHH1";
+        // 首位都含有数字
+        var reg2 = /^d[\s\S]*\d$/g;
+
+        // RegExp 对象属性  lastIndex
+
+        // RegExp 对象方法 exec()匹配方法
+        var str3 = "abababab"
+        console.log();
+
+
+        
+    </script>
+</body>
+</html>

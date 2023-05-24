@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在try里面发生错误,不会执行错误后的try里面的代码
+
+       try {
+           console.log('a');
+           console.log(b);
+           console.log('c')
+       } catch (error) {  //error error.message error.name --> error
+           console.log(error.name + " : " + error.message);
+       }
+       console.log('d');
+        
+
+    //    Error.name的六种值对应的信息
+    // 1.EvalError : eval()的使用预定义不一致
+
+    // 2.RangeError : 数值越界
+
+    // 3.ReferenceError : 非法或不能识别的引用数值  未定义就使用
+
+    // 4.SyntaxError : 发生语法解析错误
+
+    // 5.TypeError : 操作数类型错误
+
+    // 6.URIError : URI出来函数使用不当
+    </script>
+</body>
+</html>

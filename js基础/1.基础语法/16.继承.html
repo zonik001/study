@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.原型链过多的继承了没用的属性
+
+        // Grand.prototype.lastName = "hu";
+        // function Grand() {
+
+        // }
+
+        // var grand = new Grand();
+        // Father.prototype = grand;
+        // function Father() {
+        //     this,name = 'heheh'
+        // }
+        // var father = new Father();
+
+        // Son.prototype = father;
+        // function Son () {
+
+        // }
+        // var son = new Son();
+
+
+        // 2. 借用构造函数
+        //     - 不能继承借用构造函数的原型
+        //     - 每次构造函数都要多走一个函数
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        function Student(name, age, sex, grade) {
+            Person.call(this, name, age, sex);
+            this.grade = grade;
+        }
+
+        var student = new Student();
+
+
+        // 3. 共享原型
+        //     - 不能随便改动自己的原型
+        Father.prototype.lastName = "deng";
+        function Father() {
+
+        }
+
+        function Son() {
+
+        }
+
+        // Son.prototype = Father.prototype
+        // var son = new Son();
+        // var father = new Father();
+
+        //抽象出来
+        // function inherit(Target, Origin) {
+        //     Target.prototype = Origin.prototype;
+        // }
+        // inherit(Son, Father);
+
+       
+        // var son = new Son();
+        // console.log(son.sex); 
+
+        // Son.prototype.sex = "male";
+
+        // var father = new Father();
+        // console.log(father.sex); //male  会将儿子添加的属性共享过来，所以不能随便改动自己的原型
+
+        
+
+        // 4. 圣杯模式  ()
+            // function F() {};
+            // F.prototype = Father.prototype;
+            // Son.prototype = new F();
+        
+        //抽象出来
+        function inherit(Target, Origin) {
+            function F() {};
+            F.prototype = Origin.prototype;
+            Target.prototype = new F();
+            Target.prototype.constructor = Target; //归位 让构造器指向自己
+            Target.prototype.uber = Origin.prototype; //在原型上添加超类 ，查找根源
+        }
+        
+        inherit(Son, Father);
+
+        Son.prototype.sex = "male";
+        var son = new Son();
+        console.log(son.sex); //male
+
+        var father = new Father();
+        console.log(father.sex); //undifind 
+
+        console.log(son.constructor)// ??
+        console.log(Son.prototype.constructor);   //指向紊乱 指向的是构造函数Father，怎么才能指向自己呢
+        // **son.__proto__ --> new F().__proto__ --> Father.prototype**  
+
+       
+
+    </script>
+</body>
+</html>
