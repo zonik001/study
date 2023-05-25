@@ -1,0 +1,19 @@
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#myTable td {
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#myTable tr:nth-child(even) td {
+    background-color: lightgray;
+}
+
+.selected {
+    background-color: red;
+    color: white;
+}
