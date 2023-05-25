@@ -8,6 +8,7 @@
 // 2、遇到异步代码先放一边，并且将他回调函数存起来，存的地方叫事件队列
 // 3、等所有同步代码都执行完，再从事件队列中把存起来的所有异步回调函数拿出来按顺序执行
 
+// 单线程：不管是什么代码，最后都是在执行栈中由主线程去执行
 
 // 解题步骤
 // 1、标记区分异步和同步
@@ -15,25 +16,27 @@
 // 3、分轮数，一轮一轮慢慢走
 
 // 例题一
-// console.log(1)
-// setTimeout(() => {
-//     console.log(2)
-//     Promise.resolve().then(() => {
-//         console.log(3)
-//     })
-// });
-// console.log(4)
-// new Promise((resolve, reject) => {
-//     console.log(5)
-//     resolve()
-// }).then(() => {
-//     console.log(6)
-//     setTimeout(() => {
-//         console.log(7)
-//     })
-// })
-// console.log(8)
+console.log('1----------------------------------------------');
+console.log(1)
+setTimeout(() => {
+    console.log(2)
+    Promise.resolve().then(() => {
+        console.log(3)
+    })
+});
+console.log(4)
+new Promise((resolve, reject) => {
+    console.log(5)
+    resolve()
+}).then(() => {
+    console.log(6)
+    setTimeout(() => {
+        console.log(7)
+    })
+})
+console.log(8)
 
+console.log('2------------------------------------------');
 async function abcd() {
     function d() {
         return new Promise((resolve,reject) => {
@@ -67,8 +70,35 @@ async function abcd() {
 abcd()
 
 
+console.log('3---------------------------------');
 
-const object = { a2: '', 2: '', 1: '', a1: '' };
-for (const key in object) {
-  console.log(key);
-}
+// console.log(1);
+// setTimeout(() => {
+//     console.log(2);
+// }, 1000)
+
+// new Promise(resolve => {
+//     console.log(3);
+//     setTimeout(() => {
+//         console.log(4);
+//     }, 3000)
+//     resolve()
+// }).then(res => {
+//     console.log(5)
+// }).then(res => {
+//     console.log(6);
+// })
+// setTimeout(() => {
+//     new Promise(resolve => {
+//         resolve()
+//         console.log(7);
+//     }).then(res => {
+//         console.log(8)
+//     })
+// }, 2000)
+// setTimeout(() => {
+//     console.log(9);
+// }, 3000)
+console.log(10);
+
+//1,3,10,5,6,2,7,8,4,9
