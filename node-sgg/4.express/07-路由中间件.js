@@ -8,18 +8,16 @@ const express = require('express')
 // 创建应用对象
 const app = express()
 
-// 声明全局中间件(应用到每个路由)
-let recordMiddleware = function(request,response,next){
+// 声明路由中间件(应用到单个路由)
+let routerMiddleware = function(request,response,next){
     //实现功能代码
     console.log(request.path, request.ip);
     //执行next函数(当如果希望执行完中间件函数之后，仍然继续执行路由中的回调函数，必须调用next)
     next();
 }
-// 应用
-app.use(recordMiddleware)
 
 // 创建路由
-app.get('/home', (req, res) => {
+app.get('/home', routerMiddleware, (req, res) => {
     res.send('前台首页')
 })
 app.get('/admin', (req, res) => {
