@@ -11,7 +11,7 @@ app.use(express.static('./08-public')) //当然这个目录中都是一些静态
 
 // 创建路由
 // 路由响应动态资源，静态资源中间件响应静态资源
-app.get('/index.html', (req, res) => {
+app.get('/home', (req, res) => {
     res.send('前台首页')
 })
 app.get('/admin', (req, res) => {
