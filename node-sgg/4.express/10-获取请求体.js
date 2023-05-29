@@ -8,7 +8,10 @@
 const express = require('express')
 // 导入bodyParser
 const bodyParser = require('body-parser')
-const urlencodedParser = bodyParser.urlencoded({ extends: false })
+//处理 querystring 格式的请求体 （一般用于post请求，post请求有请求体）
+let urlParser = bodyParser.urlencoded({extended:false})
+//处理 JSON 格式的请求体
+// let jsonParser = bodyParser.json();
 
 
 // 创建应用对象
@@ -20,8 +23,10 @@ app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/11_form.html')
 })
 
-app.post('/login', (req, res) => {
+app.post('/login',urlParser, (req, res) => {
     console.log(req.body);
+    console.log(req.body.userName);
+    console.log(req.body.userPass);
     res.send('获取用户数据')
 })
 
